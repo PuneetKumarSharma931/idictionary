@@ -1,0 +1,1 @@
+This new project is created by using javascript and concepts of AJAX where I have created a dictionary. when a word get searched the corresponding request for the definitions for the word is made to the API using XMLHttp request and the response of the API is decoded by using JavaScript and the DOM gets populated by the possible definitions
