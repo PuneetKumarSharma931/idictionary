@@ -119,6 +119,12 @@ function setData(wordObj) {
 
     audioElement.src = pronunciationUrl;
     audioElement.pause();
+
+    if(pronunciationText.length<1) {
+
+        document.getElementById('pronunciationText').innerHTML = `Sorry Unable to fetch pronunciation text for ${word}`;
+
+    }
 }
 
 function fetchData() {
