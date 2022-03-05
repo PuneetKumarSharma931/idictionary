@@ -1,6 +1,7 @@
 
 let search = document.getElementById('search');
 let word;
+let audioElement = new Audio();
 
 search.addEventListener('click', fetchData);
 
@@ -10,6 +11,8 @@ function setData(wordObj) {
     let synonyms = "";
     let antonyms = "";
     let examples = "";
+    let pronunciationUrl = "";
+    let pronunciationText = "";
 
     document.getElementById('results3').innerHTML = `<li id="results3li"></li>`;
     document.getElementById('results4').innerHTML = `<li id="results4li"></li>`;
@@ -50,6 +53,22 @@ function setData(wordObj) {
 
         });
 
+    });
+    
+    wordObj.forEach(function(element){
+
+        element.phonetics.forEach(element2=>{
+
+            if(element2.text != undefined && pronunciationText.length<=1 ) {
+
+                pronunciationText = element2.text;
+            }
+
+            if(element2.audio != undefined && pronunciationUrl.length<=1 ) {
+
+                pronunciationUrl = element2.audio;
+            }
+        });
     });
 
     synonyms = synonyms.substring(0, synonyms.length - 2);
@@ -94,6 +113,12 @@ function setData(wordObj) {
     let list = document.getElementById('results');
     list.innerHTML = "";
     list.innerHTML += definition;
+
+    document.getElementById('Heading6').innerHTML = `Pronunciation for ${word}`;
+    document.getElementById('pronunciationText').innerHTML = pronunciationText;
+
+    audioElement.src = pronunciationUrl;
+    audioElement.pause();
 }
 
 function fetchData() {
@@ -105,11 +130,14 @@ function fetchData() {
         document.getElementById('Heading3').innerHTML = "Please wait... fetching Synonyms!";
         document.getElementById('Heading4').innerHTML = "Please wait... fetching Antonyms!";
         document.getElementById('Heading5').innerHTML = "Please wait... fetching Examples!";
+        document.getElementById('Heading6').innerHTML = "Please wait... fetching Pronunciation!";
+        
 
         document.getElementById('results').innerHTML = "";
         document.getElementById('results3').innerHTML = "";
         document.getElementById('results4').innerHTML = "";
         document.getElementById('results5').innerHTML = "";
+        document.getElementById('pronunciationText').innerHTML = "";
 
         const xhr = new XMLHttpRequest();
 
@@ -136,6 +164,8 @@ function fetchData() {
                 document.getElementById('Heading4').innerHTML = "Unable to fetch the Antonyms!";
                 document.getElementById('results5').innerHTML = "";
                 document.getElementById('Heading5').innerHTML = "Unable to fetch the Examples!";
+                document.getElementById('Heading6').innerHTML = "Unable to fetch the Pronunciation!";
+                document.getElementById('pronunciationText').innerHTML = "";
             }
         }
 
@@ -143,5 +173,15 @@ function fetchData() {
 
     }, 100);
 }
+
+document.getElementById('pronunciationImg').addEventListener('click', ()=>{
+
+    if(audioElement.src!=undefined) {
+
+        audioElement.play();
+    }
+});
+
+
 
 

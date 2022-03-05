@@ -1,0 +1,45 @@
+[
+    {
+        "word": "nincompoop",
+        "phonetic": "/ˈnɪŋkəmpuːp/",
+        "phonetics": [
+            {
+                "text": "/ˈnɪŋkəmpuːp/",
+                "audio": ""
+            },
+            {
+                "text": "/ˈnɪn-/",
+                "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/nincompoop-us.mp3",
+                "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=859768",
+                "license": {
+                    "name": "BY-SA 3.0",
+                    "url": "https://creativecommons.org/licenses/by-sa/3.0"
+                }
+            }
+        ],
+        "meanings": [
+            {
+                "partOfSpeech": "noun",
+                "definitions": [
+                    {
+                        "definition": "A foolish or silly person.",
+                        "synonyms": [
+                            "dunderhead",
+                            "fool",
+                            "imbecile",
+                            "nitwit"
+                        ],
+                        "antonyms": []
+                    }
+                ]
+            }
+        ],
+        "license": {
+            "name": "CC BY-SA 3.0",
+            "url": "https://creativecommons.org/licenses/by-sa/3.0"
+        },
+        "sourceUrls": [
+            "https://en.wiktionary.org/wiki/nincompoop"
+        ]
+    }
+]

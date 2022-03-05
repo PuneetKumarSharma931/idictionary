@@ -42,3 +42,33 @@ body {
     display: none; 
 }
 
+#pronunciation {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 18px;
+}
+
+#pronunciation img {
+
+    height: 60px;
+    cursor: pointer;
+    transition: all ease-out 200ms;
+}
+
+#pronunciation img:hover {
+
+    transform: scale(1.1);
+    filter: invert();
+}
+
+.myIcons {
+
+    margin: 10px 10px;
+    margin-bottom: 30px;
+}
+
+
